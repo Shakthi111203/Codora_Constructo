@@ -5,7 +5,7 @@
 ### Describe it. Generate it. Download it - Your idea, running in seconds.
 
 <blockquote> 
-"I want a fitness tracker with a dashboard, workout logger, and progress charts."
+"I want a fitness tracker with a dashboard, workout logger and progress charts."
 <br> 
 <b>— Few seconds later, you have a ZIP.</b> 
 </blockquote>
@@ -21,7 +21,7 @@
 
 ---
 
-Codora Constructo is an AI-powered web app builder. You walk in with a thought — typed, spoken, or a screenshot of an app you like — and walk out with a live-preview React application you can download.
+Codora Constructo is an AI-powered web app builder. You walk in with a thought — typed, spoken or a screenshot of an app you like — and walk out with a live-preview React application you can download.
 
 ---
  
