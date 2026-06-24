@@ -1,0 +1,305 @@
+/* ════════════════════════════════════════════
+   CODORA CONSTRUCTO – Design System
+   Font: Sora (display) + DM Sans (body)
+   Palette: Indigo #4f46e5 primary
+════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&display=swap');
+
+:root {
+  --primary:       #4f46e5;
+  --primary-light: #818cf8;
+  --primary-muted: #eef2ff;
+  --accent:        #7c3aed;
+  --surface:       #ffffff;
+  --surface-2:     #f8f9ff;
+  --border:        #e5e7eb;
+  --text:          #111827;
+  --text-2:        #6b7280;
+  --text-3:        #9ca3af;
+  --success:       #22c55e;
+  --error:         #ef4444;
+  --radius:        14px;
+  --radius-sm:     8px;
+  --shadow:        0 4px 24px rgba(79,70,229,0.08);
+  --shadow-lg:     0 12px 40px rgba(79,70,229,0.14);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #f0f1fa;
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ─── Root ─── */
+.app-root { min-height: 100vh; }
+.app-root.fullscreen { display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
+
+/* ─── Step Bar ─── */
+.step-bar { display: flex; align-items: center; justify-content: center; margin: 20px 0 28px; }
+
+.step-dot { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.step-dot span {
+  width: 32px; height: 32px; border-radius: 50%;
+  border: 2px solid var(--border); background: white;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 600; color: var(--text-3); transition: all 0.3s;
+}
+.step-dot.active span { border-color: var(--primary); background: var(--primary); color: white; box-shadow: 0 0 0 4px rgba(79,70,229,0.15); }
+.step-dot.done   span { border-color: var(--success); background: var(--success); color: white; }
+.step-dot label  { font-size: 10px; color: var(--text-3); font-weight: 500; white-space: nowrap; }
+.step-dot.active label { color: var(--primary); font-weight: 600; }
+.step-dot.done   label { color: var(--success); }
+
+.step-line { width: 48px; height: 2px; background: var(--border); margin: 0 4px; margin-bottom: 18px; flex-shrink: 0; transition: background 0.3s; }
+.step-line.filled { background: var(--success); }
+
+/* ─── Top Nav ─── */
+.top-nav {
+  height: 56px; background: white; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 24px; flex-shrink: 0; box-shadow: 0 1px 8px rgba(0,0,0,0.05); z-index: 10;
+}
+.top-nav .step-bar  { margin: 0; }
+.top-nav .step-dot  { gap: 2px; }
+.top-nav .step-dot span { width: 26px; height: 26px; font-size: 11px; }
+.top-nav .step-dot label { font-size: 9px; }
+.top-nav .step-line { width: 32px; margin-bottom: 14px; }
+
+.nav-brand { display: flex; align-items: center; gap: 8px; min-width: 200px; }
+.nav-logo  { font-size: 20px; }
+.nav-title { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 17px; color: var(--primary); }
+.nav-app-name { font-size: 12px; color: var(--text-3); background: var(--primary-muted); padding: 2px 10px; border-radius: 20px; font-weight: 500; }
+
+.nav-actions { display: flex; gap: 8px; min-width: 200px; justify-content: flex-end; }
+.nav-btn { display: flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: var(--radius-sm); border: 1px solid var(--border); background: white; cursor: pointer; font-size: 13px; font-family: 'DM Sans', sans-serif; font-weight: 500; color: var(--text); transition: all 0.15s; }
+.nav-btn:hover   { background: var(--surface-2); transform: translateY(-1px); }
+.nav-btn.outline { border-color: var(--primary); color: var(--primary); }
+.nav-btn.accent  { background: var(--primary); color: white; border-color: var(--primary); }
+.nav-btn.accent:hover { background: #4338ca; }
+
+/* ─── Centered Shell ─── */
+.centered-shell { min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 40px 20px; background: linear-gradient(135deg,#eef2ff 0%,#f5f3ff 50%,#f0fdf4 100%); }
+
+.glass-card { background: white; border-radius: 20px; padding: 36px; box-shadow: var(--shadow-lg); border: 1px solid rgba(255,255,255,0.8); animation: slideUp 0.4s cubic-bezier(0.16,1,0.3,1); }
+.step1-card { width: 100%; max-width: 480px; }
+.step2-card { width: 100%; max-width: 640px; }
+
+@keyframes slideUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+
+/* ─── Step 1 Brand ─── */
+.step1-brand { text-align: center; margin-bottom: 8px; }
+.brand-icon  { font-size: 36px; display: block; margin-bottom: 8px; }
+.brand-name  { font-family: 'Sora', sans-serif; font-size: 30px; font-weight: 800; color: var(--primary); letter-spacing: -1px; }
+.brand-sub   { font-size: 14px; color: var(--text-2); margin-top: 6px; margin-bottom: 8px; }
+
+/* ─── Form Fields ─── */
+.field-group { margin-top: 18px; }
+.field-label { display: block; font-size: 12px; font-weight: 600; color: var(--text-2); text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 6px; }
+.input { width: 100%; padding: 11px 14px; border-radius: var(--radius-sm); border: 1.5px solid var(--border); font-size: 14px; font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--surface-2); transition: all 0.2s; }
+.input:focus { outline: none; border-color: var(--primary); background: white; box-shadow: 0 0 0 3px rgba(79,70,229,0.1); }
+
+/* ─── Buttons ─── */
+.btn { padding: 9px 16px; border-radius: var(--radius-sm); border: 1.5px solid var(--border); background: white; cursor: pointer; font-size: 13px; font-family: 'DM Sans', sans-serif; font-weight: 500; color: var(--text); transition: all 0.15s; display: inline-flex; align-items: center; gap: 6px; }
+.btn:hover         { background: var(--surface-2); transform: translateY(-1px); }
+.btn.primary       { background: var(--primary); color: white; border-color: var(--primary); }
+.btn.primary:hover { background: #4338ca; box-shadow: 0 4px 12px rgba(79,70,229,0.3); }
+.full-btn { width: 100%; justify-content: center; margin-top: 24px; padding: 13px; font-size: 15px; font-weight: 600; }
+.btn-sm { padding: 4px 10px; font-size: 11px; border-radius: 6px; border: 1px solid var(--border); background: rgba(255,255,255,0.1); color: #cdd6f4; cursor: pointer; font-family: 'DM Sans', sans-serif; }
+.btn-sm:hover { background: rgba(255,255,255,0.2); }
+
+/* ─── Step 2 ─── */
+.section-heading { font-family: 'Sora', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 16px; }
+.meta-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+.meta-pill { background: var(--primary-muted); color: var(--primary); border-radius: 20px; padding: 4px 12px; font-size: 12px; font-weight: 500; display: flex; align-items: center; gap: 6px; }
+.app-name-pill { background: #f0fdf4; color: #16a34a; }
+.inline-input { border: none; border-bottom: 1.5px solid var(--primary); outline: none; font-size: 13px; font-family: 'DM Sans', sans-serif; background: transparent; color: var(--text); width: 100px; }
+.icon-btn { background: none; border: none; cursor: pointer; color: var(--text-3); display: flex; align-items: center; padding: 2px; }
+.icon-btn:hover { color: var(--primary); }
+
+.pages-scroll { max-height: 400px; overflow-y: auto; margin: 0 -8px; padding: 0 8px; }
+.pages-scroll::-webkit-scrollbar { width: 4px; }
+.pages-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+.page-block { padding: 14px 16px; border-radius: 12px; margin-bottom: 10px; background: white; border: 1.5px solid var(--border); transition: all 0.2s; }
+.page-block:hover { border-color: var(--primary-light); background: var(--primary-muted); }
+.page-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.drag-handle { cursor: grab; color: var(--text-3); font-size: 16px; }
+.page-label  { font-weight: 600; font-size: 14px; }
+
+.section-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-2); padding: 3px 0; cursor: pointer; }
+.section-item input { accent-color: var(--primary); cursor: pointer; }
+.add-sec-btn { margin-top: 10px; font-size: 12px; padding: 5px 10px; }
+.btn-group { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; align-items: center; }
+
+/* ─── Split Layout ─── */
+.split-layout { flex: 1; display: flex; overflow: hidden; }
+.split-left  { width: 50%; background: #1e1e2e; color: #cdd6f4; display: flex; flex-direction: column; overflow: hidden; border-right: 1px solid #313244; }
+.split-right { width: 50%; background: var(--surface-2); display: flex; flex-direction: column; overflow: hidden; }
+
+.split-section-header { width: 100%; display: flex; align-items: center; gap: 8px; padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 13px; font-weight: 600; background: rgba(0,0,0,0.2); flex-shrink: 0; }
+.split-right .split-section-header { border-bottom-color: var(--border); background: white; color: var(--text); box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+
+/* ─── Step 3 ─── */
+.config-meta { display: flex; gap: 8px; flex-wrap: wrap; padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,0.06); flex-shrink: 0; }
+.config-tag  { background: rgba(79,70,229,0.2); color: #a5b4fc; border-radius: 6px; padding: 3px 10px; font-size: 11px; font-weight: 500; }
+.json-block  { flex: 1; overflow-y: auto; overflow-x: auto; padding: 20px; font-family: 'Fira Code','Courier New',monospace; font-size: 12px; line-height: 1.7; color: #a6e3a1; white-space: pre; }
+.json-block::-webkit-scrollbar { width: 5px; }
+.json-block::-webkit-scrollbar-thumb { background: #313244; border-radius: 4px; }
+.split-footer { padding: 14px 20px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; gap: 10px; justify-content: flex-end; flex-shrink: 0; background: rgba(0,0,0,0.15); }
+
+.preview-scroll { flex: 1; overflow-y: auto; padding: 20px; }
+.preview-scroll::-webkit-scrollbar { width: 5px; }
+.preview-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+.preview-app-title  { font-family: 'Sora', sans-serif; font-size: 20px; font-weight: 800; color: var(--primary); margin-bottom: 16px; }
+.preview-page-card  { background: white; border-radius: 12px; margin-bottom: 14px; border: 1px solid var(--border); overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); animation: slideUp 0.3s ease forwards; }
+.preview-page-header { padding: 10px 14px; font-weight: 600; font-size: 13px; background: var(--primary-muted); color: var(--primary); border-bottom: 1px solid var(--border); }
+.preview-sections-grid { padding: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
+.preview-sec-chip { background: var(--surface-2); border: 1px solid var(--border); border-radius: 6px; padding: 4px 10px; font-size: 11px; color: var(--text-2); font-weight: 500; }
+
+/* ─── Step 4 Left ─── */
+.gen-badge       { margin-left: auto; font-size: 10px; padding: 2px 8px; border-radius: 12px; font-weight: 600; }
+.gen-badge.pulse { background: rgba(79,70,229,0.2); color: #818cf8; animation: badgePulse 1.5s ease infinite; }
+.gen-badge.done  { background: rgba(34,197,94,0.2); color: #4ade80; }
+@keyframes badgePulse { 0%,100%{opacity:1}50%{opacity:0.5} }
+
+.gen-progress-list { padding: 12px; display: flex; flex-direction: column; gap: 4px; flex-shrink: 0; border-bottom: 1px solid rgba(255,255,255,0.06); max-height: 220px; overflow-y: auto; }
+.gen-file-row { display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 8px; cursor: default; transition: all 0.15s; font-size: 12px; }
+.gen-file-row.file-ready        { cursor: pointer; }
+.gen-file-row.file-ready:hover  { background: rgba(79,70,229,0.1); }
+.gen-file-row.active            { background: rgba(79,70,229,0.2); }
+.file-status-icon { width: 18px; text-align: center; flex-shrink: 0; }
+.file-row-name    { font-family: 'Fira Code', monospace; color: #cba6f7; flex: 1; }
+.gen-inline-badge { font-size: 10px; background: rgba(79,70,229,0.3); color: #818cf8; padding: 1px 6px; border-radius: 10px; }
+
+.code-area        { flex: 1; display: flex; flex-direction: column; overflow: hidden; margin: 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.08); }
+.code-area-header { display: flex; align-items: center; justify-content: space-between; padding: 8px 14px; background: #181825; border-bottom: 1px solid rgba(255,255,255,0.06); flex-shrink: 0; }
+.code-filename    { font-family: 'Fira Code', monospace; font-size: 11px; color: #cba6f7; }
+.code-block       { flex: 1; overflow-y: auto; overflow-x: auto; padding: 14px; font-family: 'Fira Code','Courier New',monospace; font-size: 11px; line-height: 1.7; color: #cdd6f4; background: #1e1e2e; white-space: pre; margin: 0; }
+.code-block::-webkit-scrollbar { width: 4px; }
+.code-block::-webkit-scrollbar-thumb { background: #313244; border-radius: 4px; }
+.empty-code-hint  { padding: 24px; color: var(--text-3); font-size: 13px; text-align: center; }
+
+/* ─── Step 4 Right ─── */
+.preview-page-badge  { margin-left: auto; background: var(--primary-muted); color: var(--primary); font-size: 10px; padding: 2px 8px; border-radius: 12px; font-weight: 600; }
+.page-preview-frame  { flex: 1; padding: 20px; overflow-y: auto; }
+.page-preview-frame::-webkit-scrollbar { width: 5px; }
+.page-preview-frame::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+.preview-empty-state { flex: 1; display: flex; align-items: center; justify-content: center; padding: 40px; position: relative; overflow: hidden; }
+.generating-anim     { text-align: center; color: var(--text-2); }
+.gen-spinner         { width: 40px; height: 40px; border: 3px solid var(--border); border-top-color: var(--primary); border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 16px; }
+.gen-sub             { font-size: 12px; color: var(--text-3); margin-top: 6px; }
+.preview-hint        { text-align: center; color: var(--text-3); }
+.hint-icon           { font-size: 28px; display: block; margin-bottom: 12px; }
+
+/* ─── Shimmer skeleton ─── */
+@keyframes shimmer {
+  0%   { background-position: -600px 0 }
+  100% { background-position:  600px 0 }
+}
+.sk {
+  background: linear-gradient(90deg,#f0f0f0 25%,#e8e8e8 50%,#f0f0f0 75%);
+  background-size: 600px 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: 8px;
+}
+
+/* ─── Animations ─── */
+@keyframes spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+.spin { animation: spin 1s linear infinite; }
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .split-layout { flex-direction: column; }
+  .split-left, .split-right { width: 100%; height: 50vh; }
+  .top-nav .step-bar { display: none; }
+}
+
+.rename-btn { opacity: 0; transition: opacity 0.15s; }
+.project-card:hover .rename-btn { opacity: 1; }
+
+/* ════════════════════════════════════
+   MOBILE RESPONSIVE — 768px and below
+════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* ── Top Nav ── */
+  .top-nav {
+    height: auto;
+    padding: 10px 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .top-nav .step-bar { display: none; }
+  .nav-brand { min-width: unset; gap: 6px; }
+  .nav-title { font-size: 14px; }
+  .nav-app-name { display: none; } /* too cramped */
+  .nav-actions { min-width: unset; gap: 6px; flex-wrap: wrap; }
+  .nav-btn { font-size: 12px; padding: 5px 10px; }
+
+  /* ── Split Layout: stack vertically ── */
+  .split-layout {
+    flex-direction: column;
+    height: auto;
+    overflow: visible;
+  }
+
+  /* ── Step 3 ── */
+  .split-left,
+  .split-right {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    overflow: visible;
+  }
+  .json-block { max-height: 240px; }
+  .preview-scroll { max-height: 300px; }
+
+  /* ── Step 4 Left: collapse code area, keep file list ── */
+  .gen-left {
+    max-height: none;
+    overflow: visible;
+  }
+  .gen-progress-list { max-height: none; }
+  .code-area { display: none; } /* hide raw code on mobile */
+  .empty-code-hint { display: none; }
+
+  /* ── Step 4 Right: give preview enough room ── */
+  .gen-right {
+    min-height: 520px;
+  }
+  .page-preview-frame {
+    padding: 12px;
+    overflow-y: visible;
+  }
+
+  /* ── Feedback box full width ── */
+  .split-left > div[style] textarea {
+    width: 100% !important;
+  }
+
+  /* ── Step 1 card ── */
+  .step1-card,
+  .step2-card {
+    padding: 24px 18px;
+  }
+
+  /* ── Step 2 pages scroll ── */
+  .pages-scroll { max-height: 320px; }
+
+  /* ── fullscreen override ── */
+  .app-root.fullscreen {
+    height: auto;
+    overflow: visible;
+  }
+}
+
+/* ── Extra small (375px iPhone SE) ── */
+@media (max-width: 400px) {
+  .nav-title { font-size: 13px; }
+  .nav-btn { font-size: 11px; padding: 5px 8px; gap: 4px; }
+  .brand-name { font-size: 24px; }
+}
