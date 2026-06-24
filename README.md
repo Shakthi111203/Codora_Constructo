@@ -51,7 +51,6 @@ git clone https://github.com/Shakthi111203/Codora_Constructo.git
 
 # Backend
 cd backend && npm install
-echo "GROQ_API_KEY=your_key_here" > .env
 npm run dev
 
 # Frontend
