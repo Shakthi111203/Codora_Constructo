@@ -64,9 +64,7 @@ Return only JSON.`,
     }
 
     const response = await groq.chat.completions.create({
-      model: imageBase64
-        ? "meta-llama/llama-4-scout-17b-16e-instruct"  // ✅ current Groq vision model
-        : "llama-3.3-70b-versatile",
+      model: "openai/gpt-oss-120b",
       messages,
       temperature: 0.3,
     });
